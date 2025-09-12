@@ -11,8 +11,10 @@ import latestFeature from "@/lib/redux/slices/master/latestFeature";
 import menuAccess from "@/lib/redux/slices/master/menuAccess";
 import menuAccessMobile from "@/lib/redux/slices/master/menuAccessMobile";
 import role from "@/lib/redux/slices/master/role";
-import shift from "@/lib/redux/slices/master/shift";
 import user from "@/lib/redux/slices/master/user";
+
+import shift from "@/lib/redux/slices/master/shift";
+import witel from "@/lib/redux/slices/master/witel";
 
 // redux log
 import logActivity from "./slices/log/logActivity";
@@ -40,6 +42,7 @@ const store = configureStore({
 
     departementUser,
     shift,
+    witel,
 
     // Setting
     role,

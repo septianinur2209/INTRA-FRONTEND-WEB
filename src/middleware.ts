@@ -35,6 +35,9 @@ export function middleware(request: NextRequest) {
   const menuListFlast = [
     "dashboard",
 
+    // master
+    "master/witel",
+
     "report/pt3",
 
     "setting/role-user",
@@ -45,9 +48,6 @@ export function middleware(request: NextRequest) {
     "setting/department-user",
     "log/log-activity",
     "log/log-notification",
-
-    // master
-    "master/shift",
   ];
 
   if (

@@ -38,6 +38,15 @@ export const UPDATE_STATUS_SHIFT = "UPDATE_STATUS_SHIFT";
 export const DELETE_SHIFT = "DELETE_SHIFT";
 export const EXPORT_SHIFT = "EXPORT_SHIFT";
 
+// master witel
+export const GET_WITEL = "GET_WITEL";
+export const GET_WITEL_DROPDOWN = "GET_WITEL_DROPDOWN";
+export const CREATE_WITEL = "CREATE_WITEL";
+export const UPDATE_WITEL = "UPDATE_WITEL";
+export const UPDATE_STATUS_WITEL = "UPDATE_STATUS_WITEL";
+export const DELETE_WITEL = "DELETE_WITEL";
+export const EXPORT_WITEL = "EXPORT_WITEL";
+
 // master menu access
 export const GET_MENU_ACCESS = "GET_MENU_ACCESS";
 export const SAVE_MENU_ACCESS = "SAVE_MENU_ACCESS";

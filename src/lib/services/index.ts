@@ -8,8 +8,11 @@ import { LatestFeatureServices, LatestFeatureServiceType } from "./master/latest
 import { MenuAccessMobileServices, MenuAccessMobileType } from "./master/menu-access-mobile";
 import { MenuAccessServices, MenuAccessServiceType } from "./master/menuAccess";
 import { RoleServices, RoleServiceType } from "./master/role";
-import { ShiftServices, ShiftServicesType } from "./master/shift";
 import { UserServices, UserServiceType } from "./master/user";
+
+import { ShiftServices, ShiftServicesType } from "./master/shift";
+import { WitelServices, WitelServicesType } from "./master/witel";
+
 import { NotificationsServices, NotificationsServiceType } from "./notifications";
 import { SystemUpdateServices, SystemUpdateServiceType } from "./system-update";
 import { LogNotificationServices, LogNotificationServiceType } from "./log-notification";
@@ -31,6 +34,7 @@ type ServiceType = AuthServiceType &
 
   // Master
   ShiftServicesType &
+  WitelServicesType &
 
   // Report
   ReportPT3ServicesType &
@@ -117,6 +121,7 @@ const services: ServiceType = {
   //master
   ...DepartementUserServices(axiosInstanceWithToken),
   ...ShiftServices(axiosInstanceWithToken),
+  ...WitelServices(axiosInstanceWithToken),
 
   // Report
   ...ReportPT3Services(axiosInstanceWithToken),
@@ -199,6 +204,15 @@ export const {
   deleteShift,
   updateShift,
   exportShift,
+
+  // master witel
+  getDropdownWitel,
+  getWitelDatatable,
+  updateStatusWitel,
+  createWitel,
+  deleteWitel,
+  updateWitel,
+  exportWitel,
 
   // setting latest feature
   getLatestFeature,

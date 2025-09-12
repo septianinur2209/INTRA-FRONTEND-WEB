@@ -41,6 +41,14 @@ export const menuList: MenuListType[] = [
         canEdit: true,
         canDelete: true,
       },
+      {
+        id: "master/witel",
+        text: "Witel",
+        url: "/master/witel",
+        canCreate: true,
+        canEdit: true,
+        canDelete: true,
+      },
     ],
   },
 

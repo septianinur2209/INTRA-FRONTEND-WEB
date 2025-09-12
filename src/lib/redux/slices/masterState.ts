@@ -121,7 +121,7 @@ export const generateMasterSlice = (name: string) => {
       receive: (state, action: PayloadAction<GetDatatableResponse>) => {
         const payload = action.payload;
         state.data = payload.data;
-        state.dataTotal = payload.recordsFiltered;
+        state.dataTotal = payload.recordsTotal;
         state.fetching = false;
         state.error = null;
 

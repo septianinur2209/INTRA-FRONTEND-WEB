@@ -27,6 +27,11 @@ import { watchExportShiftAsync } from "./master/shift/export";
 import { watchGetShiftAsync } from "./master/shift/get";
 import { watchUpdateShiftAsync } from "./master/shift/upsert";
 
+//master witel
+import { watchExportWitelAsync } from "./master/witel/export";
+import { watchGetWitelAsync } from "./master/witel/get";
+import { watchUpdateWitelAsync } from "./master/witel/upsert";
+
 //master user
 import { watchChangeProfilePictureAsync } from "./auth/changeProfilePicture";
 import { watchCreateUserAsync } from "./master/user/create";
@@ -140,6 +145,11 @@ export function* rootSaga() {
     watchGetShiftAsync(),
     watchUpdateShiftAsync(),
     watchExportShiftAsync(),
+
+    // master witel
+    watchGetWitelAsync(),
+    watchUpdateWitelAsync(),
+    watchExportWitelAsync(),
 
     // log activity
     watchGetLogActivityAsync(),
