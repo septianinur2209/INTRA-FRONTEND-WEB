@@ -27,6 +27,11 @@ import { watchExportShiftAsync } from "./master/shift/export";
 import { watchGetShiftAsync } from "./master/shift/get";
 import { watchUpdateShiftAsync } from "./master/shift/upsert";
 
+//master status lapangan
+import { watchExportStatusLapanganAsync } from "./master/statusLapangan/export";
+import { watchGetStatusLapanganAsync } from "./master/statusLapangan/get";
+import { watchUpdateStatusLapanganAsync } from "./master/statusLapangan/upsert";
+
 //master witel
 import { watchExportWitelAsync } from "./master/witel/export";
 import { watchGetWitelAsync } from "./master/witel/get";
@@ -145,6 +150,11 @@ export function* rootSaga() {
     watchGetShiftAsync(),
     watchUpdateShiftAsync(),
     watchExportShiftAsync(),
+
+    // master status lapangan
+    watchGetStatusLapanganAsync(),
+    watchUpdateStatusLapanganAsync(),
+    watchExportStatusLapanganAsync(),
 
     // master witel
     watchGetWitelAsync(),

@@ -36,6 +36,7 @@ export function middleware(request: NextRequest) {
     "dashboard",
 
     // master
+    "master/status-lapangan",
     "master/witel",
 
     "report/pt3",
