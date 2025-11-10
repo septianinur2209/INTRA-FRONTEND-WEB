@@ -39,8 +39,13 @@ export function middleware(request: NextRequest) {
     "master/status-lapangan",
     "master/witel",
 
+    // transaction
+    "transaction/daily-man-power",
+
+    // report
     "report/pt3",
 
+    // setting
     "setting/role-user",
     "setting/menu-access-mobile",
     "setting/user",

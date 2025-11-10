@@ -18,6 +18,8 @@ import { NotificationsServices, NotificationsServiceType } from "./notifications
 import { SystemUpdateServices, SystemUpdateServiceType } from "./system-update";
 import { LogNotificationServices, LogNotificationServiceType } from "./log-notification";
 
+import { DailyManPowerServices, DailyManPowerServicesType } from "./transaction/daily-man-power";
+
 import { ReportPT3Services, ReportPT3ServicesType } from "./report/pt3";
 
 export type DefaultServiceResponse = {
@@ -37,6 +39,9 @@ type ServiceType = AuthServiceType &
   ShiftServicesType &
   StatusLapanganServicesType &
   WitelServicesType &
+
+  // Transaction
+  DailyManPowerServicesType &
 
   // Report
   ReportPT3ServicesType &
@@ -125,6 +130,9 @@ const services: ServiceType = {
   ...ShiftServices(axiosInstanceWithToken),
   ...StatusLapanganServices(axiosInstanceWithToken),
   ...WitelServices(axiosInstanceWithToken),
+
+  // Transaction
+  ...DailyManPowerServices(axiosInstanceWithToken),
 
   // Report
   ...ReportPT3Services(axiosInstanceWithToken),
@@ -262,6 +270,15 @@ export const {
   downloadLogNotificationById,
   downloadLogNotificationFilter,
   getLogNotification,
+
+  // Transaction
+  getDropdownDailyManPower,
+  getDailyManPowerDatatable,
+  createDailyManPower,
+  importDailyManPower,
+  deleteDailyManPower,
+  updateDailyManPower,
+  exportDailyManPower,
 
   // Report PT3
   getDropdownReportPT3,

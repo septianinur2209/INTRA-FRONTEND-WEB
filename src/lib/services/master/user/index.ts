@@ -6,14 +6,14 @@ export type DataUserRequestType = {
   name: string;
   nik: string;
   role_id: string;
-  departement_user_id: string;
+  // departement_user_id: string | null;
   picture?: File | null;
   is_web: string;
   is_app: string;
   email: string;
   phone_number: string;
   picture_sign?: File | null;
-  job_position_id: string;
+  // job_position_id: string | null;
 };
 
 // service for get user by id
@@ -89,12 +89,12 @@ export const createUserService =
         formData.append("name", data.name);
         formData.append("nik", data.nik);
         formData.append("role_id", data.role_id);
-        formData.append("departement_user_id", data.departement_user_id);
+        // formData.append("departement_user_id", data.departement_user_id);
         formData.append("is_web", data.is_web);
         formData.append("is_app", data.is_app);
         formData.append("email", data.email);
         formData.append("phone_number", data.phone_number);
-        formData.append("job_position_id", data.job_position_id);
+        // formData.append("job_position_id", data.job_position_id);
         if (data.picture) {
           formData.append("picture", data.picture);
         }
@@ -126,14 +126,14 @@ export const updateUserService =
         formData.append("nik", data.nik);
         formData.append("_method", "PUT");
         formData.append("role_id", data.role_id);
-        formData.append("departement_user_id", data.departement_user_id);
+        // formData.append("departement_user_id", data.departement_user_id);
         formData.append("is_web", data.is_web);
         formData.append("is_app", data.is_app);
         formData.append("email", data.email);
         if(data.phone_number) {
           formData.append("phone_number", data.phone_number);
         }
-        formData.append("job_position_id", data.job_position_id);
+        // formData.append("job_position_id", data.job_position_id);
         if (data.picture) {
           formData.append("picture", data.picture);
         }

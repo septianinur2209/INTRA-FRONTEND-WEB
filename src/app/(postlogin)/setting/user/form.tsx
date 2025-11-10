@@ -29,7 +29,7 @@ type FormUserDataType = {
   nik: string,
   role_id: string,
   picture: string,
-  departement_user_id: string,
+  // departement_user_id: string,
   email: string,
   phone_number: string,
   picture_sign: string,
@@ -43,69 +43,69 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
   const [pictureSignPath, setPictureSignPath] = useState<string>("")
   const [errorImageSign, setErrorImageSign] = useState<boolean>(false)
 
-  const [selectDepartementData, setSelectDepartementData] = useState<{ id: string; name: string, }[]>([])
-  const [selectDepartementLoading, setSelectDepartementLoading] = useState<boolean>(false)
-  const [selectDepartementOpen, setSelectDepartementOpen] = useState<boolean>(false)
+  // const [selectDepartementData, setSelectDepartementData] = useState<{ id: string; name: string, }[]>([])
+  // const [selectDepartementLoading, setSelectDepartementLoading] = useState<boolean>(false)
+  // const [selectDepartementOpen, setSelectDepartementOpen] = useState<boolean>(false)
 
-  const [selectJobPositionData, setSelectJobPositionData] = useState<{ id: string; name: string, }[]>([])
-  const [selectJobPositionLoading, setSelectJobPositionLoading] = useState<boolean>(false)
-  const [selectJobPositionOpen, setSelectJobPositionOpen] = useState<boolean>(false)
+  // const [selectJobPositionData, setSelectJobPositionData] = useState<{ id: string; name: string, }[]>([])
+  // const [selectJobPositionLoading, setSelectJobPositionLoading] = useState<boolean>(false)
+  // const [selectJobPositionOpen, setSelectJobPositionOpen] = useState<boolean>(false)
 
   const [selectRoleData, setSelectRoleData] = useState<{ id: string; name: string, }[]>([])
   const [selectRoleLoading, setSelectRoleLoading] = useState<boolean>(false)
   const [selectRoleOpen, setSelectRoleOpen] = useState<boolean>(false)
 
   // function for call api get departement user
-  const getDataDepartementUser = useCallback(async (keyword: string) => {
-    try {
-      if (keyword.length >= 1) {
-        setSelectDepartementLoading(true)
-        const res = await getUserDepartementDropdown(keyword)
-        const parsingData = res.result != undefined ? res.result.data.map((item) => ({ id: item.id.toString() ?? "", name: item.departement ?? "" })) : []
+  // const getDataDepartementUser = useCallback(async (keyword: string) => {
+  //   try {
+  //     if (keyword.length >= 1) {
+  //       setSelectDepartementLoading(true)
+  //       const res = await getUserDepartementDropdown(keyword)
+  //       const parsingData = res.result != undefined ? res.result.data.map((item) => ({ id: item.id.toString() ?? "", name: item.departement ?? "" })) : []
   
-        setSelectDepartementData(parsingData)
-        setSelectDepartementLoading(false)
+  //       setSelectDepartementData(parsingData)
+  //       setSelectDepartementLoading(false)
 
-        if (parsingData.length == 0) {
-          dispatch(setTextNotification({ text: "Data not available.", severity: "error" }))
-        }
-      } else {
-        setSelectDepartementLoading(false)
-        setSelectDepartementData([])
-      }
-    } catch (error) {
-      const { message, statusCode } = errorHandler(error)
-      dispatch(setTextNotification({ text: message, severity: "error", responseCode: statusCode }))
-      setSelectDepartementLoading(false)
-      setSelectDepartementData([])
-    }
-  }, [dispatch])
+  //       if (parsingData.length == 0) {
+  //         dispatch(setTextNotification({ text: "Data not available.", severity: "error" }))
+  //       }
+  //     } else {
+  //       setSelectDepartementLoading(false)
+  //       setSelectDepartementData([])
+  //     }
+  //   } catch (error) {
+  //     const { message, statusCode } = errorHandler(error)
+  //     dispatch(setTextNotification({ text: message, severity: "error", responseCode: statusCode }))
+  //     setSelectDepartementLoading(false)
+  //     setSelectDepartementData([])
+  //   }
+  // }, [dispatch])
 
-  // function for call api get job position
-  const getDataJobPosition = useCallback(async (keyword: string) => {
-    try {
-      if (keyword.length >= 1) {
-        setSelectJobPositionLoading(true)
-        const res = await getUserJobPositionsDropdown(keyword)
-        const parsingData = res.result != undefined ? res.result.data.map((item) => ({ id: item.id.toString() ?? "", name: item.job_position ?? "" })) : []
+  // // function for call api get job position
+  // const getDataJobPosition = useCallback(async (keyword: string) => {
+  //   try {
+  //     if (keyword.length >= 1) {
+  //       setSelectJobPositionLoading(true)
+  //       const res = await getUserJobPositionsDropdown(keyword)
+  //       const parsingData = res.result != undefined ? res.result.data.map((item) => ({ id: item.id.toString() ?? "", name: item.job_position ?? "" })) : []
   
-        setSelectJobPositionData(parsingData)
-        setSelectJobPositionLoading(false)
+  //       setSelectJobPositionData(parsingData)
+  //       setSelectJobPositionLoading(false)
 
-        if (parsingData.length == 0) {
-          dispatch(setTextNotification({ text: "Data not available.", severity: "error" }))
-        }
-      } else {
-        setSelectJobPositionLoading(false)
-        setSelectJobPositionData([])
-      }
-    } catch (error) {
-      const { message, statusCode } = errorHandler(error)
-      dispatch(setTextNotification({ text: message, severity: "error", responseCode: statusCode }))
-      setSelectJobPositionLoading(false)
-      setSelectJobPositionData([])
-    }
-  }, [dispatch])
+  //       if (parsingData.length == 0) {
+  //         dispatch(setTextNotification({ text: "Data not available.", severity: "error" }))
+  //       }
+  //     } else {
+  //       setSelectJobPositionLoading(false)
+  //       setSelectJobPositionData([])
+  //     }
+  //   } catch (error) {
+  //     const { message, statusCode } = errorHandler(error)
+  //     dispatch(setTextNotification({ text: message, severity: "error", responseCode: statusCode }))
+  //     setSelectJobPositionLoading(false)
+  //     setSelectJobPositionData([])
+  //   }
+  // }, [dispatch])
 
   // function for call api get role
   const getDataRole = useCallback(async (keyword: string) => {
@@ -134,18 +134,18 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
   }, [dispatch])
 
   // function on input change select departement user
-  const onInputChangeSelectDepartement = useDebouncedCallback(async (event: SyntheticEvent<Element, Event>, value: string, reason: AutocompleteInputChangeReason) => {
-    if (reason === 'input' || reason === 'clear') {
-      getDataDepartementUser(value)
-    }
-  }, 500)
+  // const onInputChangeSelectDepartement = useDebouncedCallback(async (event: SyntheticEvent<Element, Event>, value: string, reason: AutocompleteInputChangeReason) => {
+  //   if (reason === 'input' || reason === 'clear') {
+  //     getDataDepartementUser(value)
+  //   }
+  // }, 500)
 
   // function on input change select job position
-  const onInputChangeSelectJobPosition = useDebouncedCallback(async (event: SyntheticEvent<Element, Event>, value: string, reason: AutocompleteInputChangeReason) => {
-    if (reason === 'input' || reason === 'clear') {
-      getDataJobPosition(value)
-    }
-  }, 500)
+  // const onInputChangeSelectJobPosition = useDebouncedCallback(async (event: SyntheticEvent<Element, Event>, value: string, reason: AutocompleteInputChangeReason) => {
+  //   if (reason === 'input' || reason === 'clear') {
+  //     getDataJobPosition(value)
+  //   }
+  // }, 500)
 
   // function on input change select role
   const onInputChangeSelectRole = useDebouncedCallback(async (event: SyntheticEvent<Element, Event>, value: string, reason: AutocompleteInputChangeReason) => {
@@ -154,17 +154,17 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
     }
   }, 500)
 
-  useEffect(() => {
-    if (selectDepartementOpen) {
-      getDataDepartementUser('')
-    }
-  }, [selectDepartementOpen])
+  // useEffect(() => {
+  //   if (selectDepartementOpen) {
+  //     getDataDepartementUser('')
+  //   }
+  // }, [selectDepartementOpen])
 
-  useEffect(() => {
-    if (selectJobPositionOpen) {
-      getDataJobPosition('')
-    }
-  }, [selectJobPositionOpen])
+  // useEffect(() => {
+  //   if (selectJobPositionOpen) {
+  //     getDataJobPosition('')
+  //   }
+  // }, [selectJobPositionOpen])
 
   useEffect(() => {
     if (selectRoleOpen) {
@@ -189,13 +189,13 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
       nik: "",
       role_id: undefined,
       picture: null,
-      departement_user_id: undefined,
+      // departement_user_id: undefined,
       is_web: "1",
       is_app: "1",
       email: "",
       phone_number: "",
       picture_sign: null,
-      job_position_id: undefined,
+      // job_position_id: undefined,
     }
   })
 
@@ -207,14 +207,14 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
       id: string,
       name: string
     } | undefined,
-    departement_user_id: {
-      id: string,
-      name: string
-    } | undefined,
-    job_position_id: {
-      id: string,
-      name: string
-    } | undefined,
+    // departement_user_id: {
+    //   id: string,
+    //   name: string
+    // } | undefined,
+    // job_position_id: {
+    //   id: string,
+    //   name: string
+    // } | undefined,
     picture?: File | null,
     is_web: string,
     is_app: string,
@@ -227,13 +227,13 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
       nik: value.nik ?? "",
       role_id: value.role_id?.id ?? '',
       picture: value.picture,
-      departement_user_id: value.departement_user_id?.id ?? '',
+      // departement_user_id: value.departement_user_id?.id ?? '',
       is_app: value.is_app,
       is_web: value.is_web,
       email: value.email ?? "",
       phone_number: value.phone_number ?? "",
       picture_sign: value.picture_sign,
-      job_position_id: value.job_position_id?.id ?? '',
+      // job_position_id: value.job_position_id?.id ?? '',
     }
 
     if (data.id) {
@@ -305,10 +305,10 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
       reset({
         name: data.name,
         nik: data.nik,
-        departement_user_id: data.departement_user_id != null ? {
-          id: data.departement_user_id ?? "",
-          name: data.departement_name ?? ''
-        } : undefined,
+        // departement_user_id: data.departement_user_id != null ? {
+        //   id: data.departement_user_id ?? "",
+        //   name: data.departement_name ?? ''
+        // } : undefined,
         role_id: data.role_id != null ? {
           id: data.role_id ?? "",
           name: data.role_name ?? ''
@@ -317,10 +317,10 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
         is_app: data.is_app,
         email: data.email,
         phone_number: data.phone_number,
-        job_position_id: data.job_position_id != null ? {
-          id: data.job_position_id ?? "",
-          name: data.job_position_name ?? ''
-        } : undefined,
+        // job_position_id: data.job_position_id != null ? {
+        //   id: data.job_position_id ?? "",
+        //   name: data.job_position_name ?? ''
+        // } : undefined,
       })
       dispatch({ type: GET_USER_BY_ID, id: data.id })
     } else {
@@ -329,13 +329,13 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
         nik: "",
         role_id: undefined,
         picture: null,
-        departement_user_id: undefined,
+        // departement_user_id: undefined,
         is_web: "1",
         is_app: "1",
         email: "",
         phone_number: "",
         picture_sign: null,
-        job_position_id: undefined,
+        // job_position_id: undefined,
       })
       setPictureSignPath('')
     }
@@ -627,7 +627,7 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
               {/* END ROLE */}
 
               {/* JOB POSITON */}
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Controller
                   name="job_position_id"
                   control={control}
@@ -691,11 +691,11 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
                     </FormControl>
                   }}
                 />
-              </Grid>
+              </Grid> */}
               {/* END JOB POSITION */}
 
               {/* DEPARTEMENT */}
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Controller
                   name="departement_user_id"
                   control={control}
@@ -759,7 +759,7 @@ const FormUser = ({ open, setOpen, data, setIsFiltered }: FormUserType) => {
                     </FormControl>
                   }}
                 />
-              </Grid>
+              </Grid> */}
               {/* END DEPARTEMENT */}
 
               <Grid item xs={12}>

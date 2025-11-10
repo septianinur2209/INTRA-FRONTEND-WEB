@@ -29,6 +29,9 @@ import systemUpdate from "./slices/systemUpdate";
 // redux notifications
 import notifications from "./slices/notifications";
 
+// Transaction
+import dailyManPower from "@/lib/redux/slices/transaction/dailyManPower";
+
 // Report PT3
 import reportPT3 from "@/lib/redux/slices/report/reportPT3";
 
@@ -65,6 +68,9 @@ const store = configureStore({
 
     //notifications
     notifications,
+
+    // Transaction
+    dailyManPower,
 
     // Report PT3
     reportPT3,

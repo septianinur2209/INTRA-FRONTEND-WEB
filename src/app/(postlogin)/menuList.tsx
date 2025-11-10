@@ -1,4 +1,4 @@
-import { Analytics } from "@mui/icons-material";
+import { Analytics, Groups } from "@mui/icons-material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import FolderIcon from "@mui/icons-material/Folder";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -53,6 +53,23 @@ export const menuList: MenuListType[] = [
         id: "master/witel",
         text: "Witel",
         url: "/master/witel",
+        canCreate: true,
+        canEdit: true,
+        canDelete: true,
+      },
+    ],
+  },
+
+  // Transaction
+  {
+    id: "transaction",
+    text: "Transaction",
+    icon: <Groups />,
+    child: [
+      {
+        id: "transaction/daily-man-power",
+        text: "Daily Man Power",
+        url: "/transaction/daily-man-power",
         canCreate: true,
         canEdit: true,
         canDelete: true,

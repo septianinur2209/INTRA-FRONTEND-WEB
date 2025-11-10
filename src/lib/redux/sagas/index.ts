@@ -86,6 +86,11 @@ import { watchGetNotificationsAsync } from "./notifications/getNotifications";
 import { watchGetUnreadNotificationsAsync } from "./notifications/getUnreadNotifications";
 import { watchReadNotificationsAsync } from "./notifications/readNotifications";
 
+// Transaction
+import { watchExportDailyManPowerAsync } from "./transaction/dailyManPower/export";
+import { watchGetDailyManPowerAsync } from "./transaction/dailyManPower/get";
+import { watchUpdateDailyManPowerAsync } from "./transaction/dailyManPower/upsert";
+
 // Report PT3
 import { watchExportReportPT3Async } from "./report/pt3/export";
 import { watchGetReportPT3Async } from "./report/pt3/get";
@@ -182,6 +187,11 @@ export function* rootSaga() {
     watchGetUnreadNotificationsAsync(),
     watchReadNotificationsAsync(),
     watchAllNotificationsAsync(),
+
+    // Transaction
+    watchGetDailyManPowerAsync(),
+    watchUpdateDailyManPowerAsync(),
+    watchExportDailyManPowerAsync(),
 
     // Report PT3
     watchGetReportPT3Async(),
